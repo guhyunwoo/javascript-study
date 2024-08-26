@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript 연습</title>
+    <link rel="stylesheet" href="./8.26-2.css" />
+    <script>
+      let textMessage = document.querySelector("#msg p");
+      let value;
+
+      function show() {
+        const inputText = document.querySelector('input[type="text"]').value;
+        const textMessage = document.querySelector("#msg p");
+
+        textMessage.textContent = `${inputText}님 안녕하세요! 반갑습니다!`;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>JavaScript 연습</h1>
+    <form name="form1">
+      <input type="text" placeholder="값입력" />
+      <input type="button" value="확인" onclick="show()" />
+      <input type="reset" />
+    </form>
+    <div id="msg"><p></p></div>
+  </body>
+</html>
