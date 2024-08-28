@@ -16,18 +16,82 @@
     <form>
       <label for="inputYears" class="form-label">문자열입력</label>
       <input type="text" id="inputYears" class="form-control" />
+      <br />
       <label for="inputYears" class="form-label">결과</label>
-      <input type="text" id="inputYears" class="form-control" />
-
-      <button type="button" value="문자열 추출(substring)"></button>
-      <button type="reset"></button>
+      <input type="text" id="outputYears" class="form-control" value="" />
+      <br />
+      <p></p>
+      <button type="button" class="btn btn-primary" onclick="separating()">
+        문자열 추출(substring)
+      </button>
+      <button type="button" class="btn btn-primary" onclick="toUpper()">
+        대문자변환
+      </button>
+      <button type="button" class="btn btn-primary" onclick="toLength()">
+        문자열길이
+      </button>
+      <button type="button" class="btn btn-primary" onclick="trimming()">
+        문자열 공백제거
+      </button>
+      <button type="button" class="btn btn-primary" onclick="contacting()">
+        문자열 합치기
+      </button>
+      <button type="reset" class="btn btn-primary">reset</button>
     </form>
     <script>
-      src =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
-      integrity =
-        "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz";
-      crossorigin = "anonymous";
+      function separating() {
+        let str = document.querySelector("#inputYears").value;
+        if (isNaN(str) || str.length < 8) {
+          document.querySelector("p").innerHTML =
+            "올바른 숫자 형식의 8자리를 입력하세요.";
+          return;
+        }
+        let out =
+          str.substring(0, 4) +
+          "년 " +
+          str.substring(4, 6) +
+          "월 " +
+          str.substring(6, 8) +
+          "일 입니다.";
+        document.querySelector("#outputYears").value = out;
+        document.querySelector("p").innerHTML =
+          "결과가 성공적으로 처리되었습니다.";
+      }
+
+      function toUpper() {
+        let str = document.querySelector("#inputYears").value;
+        if (isNaN(str) || str.length < 8) {
+          document.querySelector("p").innerHTML =
+            "올바른 숫자 형식의 8자리를 입력하세요.";
+          return;
+        }
+        let out = str.toUpperCase();
+        document.querySelector("#outputYears").value = out;
+        document.querySelector("p").innerHTML =
+          "결과가 성공적으로 처리되었습니다.";
+      }
+
+      function toLength() {
+        let str = document.querySelector("#inputYears").value;
+        let out = str.length;
+        document.querySelector("p").innerHTML = out + "자 입니다.";
+      }
+
+      function trimming() {
+        let str = document.querySelector("#inputYears").value;
+        let out = str.trim();
+        document.querySelector("#outputYears").value = out;
+        document.querySelector("p").innerHTML =
+          "결과가 성공적으로 처리되었습니다.";
+      }
+
+      function contacting() {
+        let str = document.querySelector("#inputYears").value;
+        let out = str.concat(" 추가된 문자열");
+        document.querySelector("#outputYears").value = out;
+        document.querySelector("p").innerHTML =
+          "결과가 성공적으로 처리되었습니다.";
+      }
     </script>
   </body>
 </html>
